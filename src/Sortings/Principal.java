@@ -5,10 +5,27 @@
  */
 package Sortings;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author anahernandez
  */
 public class Principal {
-    
+    public static void main (String[] args) throws IOException
+    {
+        File logFile = new File("");
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter(logFile));
+            writer.write("");
+        }
+        finally
+        {
+            writer.close();
+        }
+    }
 }
