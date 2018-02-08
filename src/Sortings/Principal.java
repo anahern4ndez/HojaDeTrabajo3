@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  *
@@ -17,10 +18,12 @@ import java.io.IOException;
 public class Principal {
     public static void main (String[] args) throws IOException
     {
+        Random generador = new Random();
         File logFile = new File("");
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter(logFile));
+            
             writer.write("");
         }
         finally
