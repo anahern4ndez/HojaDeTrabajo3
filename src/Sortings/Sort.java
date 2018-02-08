@@ -7,45 +7,84 @@ package Sortings;
 
 /**
  *
- * @author anahernandez
+ * @author Ana Lucía Hernández (17138). Luis Delgado (17187)
  */
 public class Sort implements Comparable{
     Integer comparable;
 
+    public Sort() {
+        this.comparable = 0;
+    }
+
     @Override
     public int compareTo(Object o) {
         Integer num1 = (Integer) o;
-        return comparable.compareTo(num1);
+        return comparable.compareTo(num1); // devuelve 0 si son iguales, -1 si comparable es menor y 
+        //1 si es mayor que el argumento
     }
-    public void gnomeSort(Integer[] theArray) 
+    public Integer[] gnomeSort(Integer[] theArray) 
     {
         for (int index = 1; index < theArray.length;)
         {
             if (theArray[index - 1] <= theArray[index])
             {
-                ++index;
+                index++;
             }
             else
             {
                 int tempVal = theArray[index];
                 theArray[index] = theArray[index - 1];
                 theArray[index - 1] = tempVal;
-                --index;
+                index--;
                 if (index == 0)
                 {
                     index = 1;
                 }
             }
         }
+        return theArray;
     }
-    public Integer[] mergeSort(Integer[] array)
+    public int[] mergeSort(int[] array)
     {
         int n = array.length;
-        int largo =0;
-        for (largo =1; largo < n; largo *= 2)
+        int[] arrayNuevo = new int[n];
+        int mitad = n/2;
+        if (n >1)
         {
-            
+            int[] primeraMitad = new int[(int)mitad];
+            int[] segundaMitad = new int[(int)mitad];
+            this.mergeSort(primeraMitad);
+            this.mergeSort(segundaMitad);
+            int i=0, j=0, k=0;
+            while ((i<primeraMitad.length) &&(j<segundaMitad.length))
+            {
+                
+                if (primeraMitad[i] < segundaMitad[j])
+                {
+                    arrayNuevo[k] = primeraMitad[i];
+                    i++;
+                }
+                else
+                {
+                    arrayNuevo[k] = segundaMitad[j];
+                    j++;
+                }
+                k++;
+            }
+            while(i < primeraMitad.length)
+            {
+                arrayNuevo[k] = primeraMitad[i];
+                i++;
+                k++;
+            }
+            while (j < segundaMitad.length)
+            {
+                arrayNuevo[k] = segundaMitad[j];
+                j++;
+                k++;
+            }
         }
+        return arrayNuevo;
     }
     
 }
