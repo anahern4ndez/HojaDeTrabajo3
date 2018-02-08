@@ -87,8 +87,8 @@ public class Sort implements Comparable{
         return arrayNuevo;
     }
     
-    private int[] listaQS;
-    public int[] quickSort(int[] lista){
+    private Integer[]listaQS;
+    public Integer[] quickSort(Integer[] lista){
         listaQS=lista;
         if (listaQS==null||listaQS.length==0){
             return null;
