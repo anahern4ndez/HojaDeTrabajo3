@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Sort implements Comparable{
     Integer comparable;
+    Integer[] mergeArray;
 
     public Sort() {
         this.comparable = 0;
@@ -46,47 +47,54 @@ public class Sort implements Comparable{
         }
         return theArray;
     }
-    public int[] mergeSort(int[] array)
-    {
-        int n = array.length;
-        int[] arrayNuevo = new int[n];
-        int mitad = n/2;
-        if (n >1)
-        {
-            int[] primeraMitad = new int[(int)mitad];
-            int[] segundaMitad = new int[(int)mitad];
-            this.mergeSort(primeraMitad);
-            this.mergeSort(segundaMitad);
-            int i=0, j=0, k=0;
-            while ((i<primeraMitad.length) &&(j<segundaMitad.length))
-            {
-                
-                if (primeraMitad[i] < segundaMitad[j])
-                {
-                    arrayNuevo[k] = primeraMitad[i];
-                    i++;
-                }
-                else
-                {
-                    arrayNuevo[k] = segundaMitad[j];
-                    j++;
-                }
-                k++;
-            }
-            while(i < primeraMitad.length)
-            {
-                arrayNuevo[k] = primeraMitad[i];
+    public void mergeSort(Integer[] array) {
+        int size = array.length;
+        if (size < 2)
+            return;
+        int mid = size / 2;
+        int leftSize = mid;
+        int rightSize = size - mid;
+        Integer[] left = new Integer[leftSize];
+        Integer[] right = new Integer[rightSize];
+        for (int i = 0; i < mid; i++) {
+            left[i] = array[i];
+
+        }
+        for (int i = mid; i < size; i++) {
+            right[i - mid] = array[i];
+        }
+        mergeSort(left);
+        mergeSort(right);
+        
+        int leftSize2 = left.length;
+        int rightSize2 = right.length;
+        int i = 0, j = 0, k = 0;
+        while (i < leftSize2 && j < rightSize2) {
+            if (left[i] <= right[j]) {
+                array[k] = left[i];
                 i++;
                 k++;
-            }
-            while (j < segundaMitad.length)
-            {
-                arrayNuevo[k] = segundaMitad[j];
-                j++;
+            } else {
+                array[k] = right[j];
                 k++;
+                j++;
             }
         }
-        return arrayNuevo;
+        while (i < leftSize2) {
+            array[k] = left[i];
+            k++;
+            i++;
+        }
+        while (j < leftSize2) {
+            array[k] = right[j];
+            k++;
+            j++;
+        }
+        mergeArray = array;
+    }
+    public Integer[] getMergedArray()
+    {
+        return mergeArray;
     }
     
     private Integer[]listaQS;
