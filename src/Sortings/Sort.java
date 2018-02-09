@@ -19,13 +19,22 @@ public class Sort implements Comparable{
     public Sort() {
         this.comparable = 0;
     }
-
+    /**
+     * 
+     * @param o
+     * @return 
+     */
     @Override
     public int compareTo(Object o) {
         Integer num1 = (Integer) o;
         return comparable.compareTo(num1); // devuelve 0 si son iguales, -1 si comparable es menor y 
         //1 si es mayor que el argumento
     }
+    /**
+     * 
+     * @param theArray
+     * @return 
+     */
     public Integer[] gnomeSort(Integer[] theArray) 
     {
         for (int index = 1; index < theArray.length;)
@@ -48,6 +57,10 @@ public class Sort implements Comparable{
         }
         return theArray;
     }
+    /**
+     * 
+     * @param array 
+     */
     public void mergeSort(Integer[] array) {
         int size = array.length;
         if (size < 2)
@@ -98,6 +111,10 @@ public class Sort implements Comparable{
             mergeArray = array;
         }
     }
+    /**
+     * 
+     * @return 
+     */
     public Integer[] getMergedArray()
     {
         return mergeArray;
@@ -115,6 +132,11 @@ public class Sort implements Comparable{
             return listaQS;
         }
     }
+    /**
+     * 
+     * @param a
+     * @param b 
+     */
     public void procesoQuicksort(int a,int b){
         if(a<b){
             int pivote=listaQS[b];
@@ -135,6 +157,11 @@ public class Sort implements Comparable{
         }
         
     }
+    /**
+     * 
+     * @param lista
+     * @return 
+     */
     public Integer[] RadixSort(Integer[] lista){
         if (lista==null||lista.length==0){
             return null;
