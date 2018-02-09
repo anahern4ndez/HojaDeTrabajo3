@@ -147,15 +147,16 @@ public class Sort implements Comparable{
             boolean r=true;
             int potencia=0;
             while (r==true){
-                if((int)mayor_num/(10^potencia)!=0){
-                    potencia++;
+                if(((int)(mayor_num/(Math.pow(10, potencia))))!=0){
+                    potencia+=1;
                 }else{
                     r=false;
                 }
             }
-            for (int i=0;i<potencia;i++){
+            for (int i=0;i<=potencia;i++){
                 for (int l=0;l<lista.length;l++){
-                    int ubicacion=(lista[l]%(10^i))/10;
+                    
+                    int ubicacion=(int)(lista[l]%(Math.pow(10, i+1)))/(int)Math.pow(10, i);
                     if (ubicacion==0){
                         bucket0.add(lista[l]);
                     }else if (ubicacion==1){
@@ -254,6 +255,5 @@ public class Sort implements Comparable{
             }
             return lista;
         }
-    }
-        
+    }        
 }
