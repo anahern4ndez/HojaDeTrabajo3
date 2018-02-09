@@ -121,13 +121,21 @@ public class SortTest {
     @Test
     public void testQuickSort() {
         System.out.println("quickSort");
-        Integer[] lista = null;
+        Integer[] lista = {9,5,2,6,3,1};
         Sort instance = new Sort();
-        Integer[] expResult = null;
+        Integer[] expResult = {1,2,3,5,6,9};
         Integer[] result = instance.quickSort(lista);
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (!Arrays.equals(result, expResult))
+        {
+            String hilo ="";
+            for (int i=0; i<result.length;i++)
+            {
+                hilo += String.valueOf(result[i]) + " ";
+            }
+            fail(hilo);
+            
+        }
     }
 
     /**
@@ -140,8 +148,6 @@ public class SortTest {
         int b = 0;
         Sort instance = new Sort();
         instance.procesoQuicksort(a, b);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -150,13 +156,46 @@ public class SortTest {
     @Test
     public void testRadixSort() {
         System.out.println("RadixSort");
-        Integer[] lista = null;
+        Integer[] lista = {9,5,2,6,3,1};
         Sort instance = new Sort();
-        Integer[] expResult = null;
+        Integer[] expResult = {1,2,3,5,6,9};
         Integer[] result = instance.RadixSort(lista);
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (!Arrays.equals(result, expResult))
+        {
+            String hilo ="";
+            for (int i=0; i<result.length;i++)
+            {
+                hilo += String.valueOf(result[i]) + " ";
+            }
+            fail(hilo);
+            
+        }
+    }
+
+    /**
+     * Test of heapSort method, of class Sort.
+     */
+    @Test
+    public void testHeapSort() {
+        System.out.println("heapSort");
+        Integer[] array = {9,5,2,6,3,1};
+        int x = 0;
+        int i = 0;
+        Sort instance = new Sort();
+        Integer[] expResult = {1,2,3,5,6,9};
+        Integer[] result = instance.heapSort(array, x, i);
+        assertArrayEquals(expResult, result);
+        if (!Arrays.equals(result, expResult))
+        {
+            String hilo ="";
+            for (int k=0; k<result.length;k++)
+            {
+                hilo += String.valueOf(result[k]) + " ";
+            }
+            fail(hilo);
+            
+        }
     }
     
 }
