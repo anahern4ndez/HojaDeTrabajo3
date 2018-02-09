@@ -12,7 +12,9 @@ import java.util.ArrayList;
  * @author Ana Lucía Hernández (17138). Luis Delgado (17187)
  */
 public class Sort implements Comparable{
-    Integer comparable;
+    private Integer comparable;
+    private Integer[] mergeArray;
+    private Integer[]listaQS;
 
     public Sort() {
         this.comparable = 0;
@@ -46,50 +48,101 @@ public class Sort implements Comparable{
         }
         return theArray;
     }
-    public int[] mergeSort(int[] array)
-    {
-        int n = array.length;
-        int[] arrayNuevo = new int[n];
-        int mitad = n/2;
-        if (n >1)
-        {
-            int[] primeraMitad = new int[(int)mitad];
-            int[] segundaMitad = new int[(int)mitad];
-            this.mergeSort(primeraMitad);
-            this.mergeSort(segundaMitad);
-            int i=0, j=0, k=0;
-            while ((i<primeraMitad.length) &&(j<segundaMitad.length))
-            {
-                
-                if (primeraMitad[i] < segundaMitad[j])
-                {
-                    arrayNuevo[k] = primeraMitad[i];
-                    i++;
-                }
-                else
-                {
-                    arrayNuevo[k] = segundaMitad[j];
-                    j++;
-                }
-                k++;
-            }
-            while(i < primeraMitad.length)
-            {
-                arrayNuevo[k] = primeraMitad[i];
+    public void mergeSort(Integer[] array) {
+        int size = array.length;
+        if (size < 2)
+            return;
+        int mid = size / 2;
+        int leftSize = mid;
+        int rightSize = size - mid;
+        Integer[] left = new Integer[leftSize];
+        Integer[] right = new Integer[rightSize];
+        for (int i = 0; i < mid; i++) {
+            left[i] = array[i];
+
+        }
+        for (int i = mid; i < size; i++) {
+            right[i - mid] = array[i];
+        }
+        mergeSort(left);
+        mergeSort(right);
+        
+        int leftSize2 = left.length;
+        int rightSize2 = right.length;
+        int i = 0, j = 0, k = 0;
+        while (i < leftSize2 && j < rightSize2) {
+            if (left[i] <= right[j]) {
+                array[k] = left[i];
                 i++;
                 k++;
-            }
-            while (j < segundaMitad.length)
-            {
-                arrayNuevo[k] = segundaMitad[j];
-                j++;
+            } else {
+                array[k] = right[j];
                 k++;
+                j++;
             }
         }
-        return arrayNuevo;
+        while (i < leftSize2) {
+            array[k] = left[i];
+            k++;
+            i++;
+        }
+        while (j < leftSize2) {
+            array[k] = right[j];
+            k++;
+            j++;
+        }
+        mergeArray = array;
     }
-    
-    private Integer[]listaQS;
+    public Integer[] getMergedArray()
+    {
+        return mergeArray;
+    }
+    public Integer[] heapSort(Integer[] array, int x, int i)
+    {
+        int n = array.length;
+ 
+        // Build heap (rearrange array)
+        for (i = n / 2 - 1; i >= 0; i--)
+        {
+            heapSort(array, n, i);
+        }
+ 
+        // One by one extract an element from heap
+        for (i= n-1; i>=0; i--)
+        {
+            // Move current root to end
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+ 
+            // call max heapify on the reduced heap
+            heapSort(array, i, 0);
+        }
+        int largest = i;  // Initialize largest as root
+        int l = 2*i + 1;  // left = 2*i + 1
+        int r = 2*i + 2;  // right = 2*i + 2
+ 
+        // If left child is larger than root
+        if (l < n && array[l] > array[largest])
+            largest = l;
+ 
+        // If right child is larger than largest so far
+        if (r < n && array[r] > array[largest])
+            largest = r;
+ 
+        // If largest is not root
+        if (largest != i)
+        {
+            int swap = array[i];
+            array[i] = array[largest];
+            array[largest] = swap;
+ 
+            // Recursively heapify the affected sub-tree
+            heapSort(array, n, largest);
+        }
+        return array;
+    }
+
     public Integer[] quickSort(Integer[] lista){
         listaQS=lista;
         if (listaQS==null||listaQS.length==0){
