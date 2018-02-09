@@ -33,10 +33,11 @@ public class Principal {
     }**/
     public static void main (String[] args) throws IOException
     {
-        Sort sorting = new Sort();
+        MergeSort sorting = new MergeSort();
         Integer[] list = {9,5,2,6,3,1};
         sorting.mergeSort(list);
         Integer[] orden = sorting.getMergedArray();
+        System.out.println(String.valueOf("MERGE SORT: "));
         for(int i=0; i<orden.length;i++)
         {
             System.out.println(String.valueOf(orden[i]));
