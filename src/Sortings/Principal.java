@@ -16,7 +16,7 @@ import java.util.Random;
  * @author anahernandez
  */
 public class Principal {
-    public static void main (String[] args) throws IOException
+    /**public static void main (String[] args) throws IOException
     {
         Random generador = new Random();
         File logFile = new File("");
@@ -29,6 +29,17 @@ public class Principal {
         finally
         {
             writer.close();
+        }
+    }**/
+    public static void main (String[] args) throws IOException
+    {
+        Sort sorting = new Sort();
+        Integer[] list = {9,5,2,6,3,1};
+        sorting.mergeSort(list);
+        Integer[] orden = sorting.getMergedArray();
+        for(int i=0; i<orden.length;i++)
+        {
+            System.out.println(String.valueOf(orden[i]));
         }
     }
 }

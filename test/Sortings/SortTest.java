@@ -176,26 +176,5 @@ public class SortTest {
     /**
      * Test of heapSort method, of class Sort.
      */
-    @Test
-    public void testHeapSort() {
-        System.out.println("heapSort");
-        Integer[] array = {9,5,2,6,3,1};
-        int x = 0;
-        int i = 0;
-        Sort instance = new Sort();
-        Integer[] expResult = {1,2,3,5,6,9};
-        Integer[] result = instance.heapSort(array, x, i);
-        assertArrayEquals(expResult, result);
-        if (!Arrays.equals(result, expResult))
-        {
-            String hilo ="";
-            for (int k=0; k<result.length;k++)
-            {
-                hilo += String.valueOf(result[k]) + " ";
-            }
-            fail(hilo);
-            
-        }
-    }
     
 }
