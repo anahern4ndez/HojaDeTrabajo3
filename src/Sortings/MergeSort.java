@@ -41,42 +41,42 @@ public class MergeSort {
         }
         else
         {
-            int mid = size / 2;
-            int leftSize = mid;
-            int rightSize = size - mid;
-            Integer[] left = new Integer[leftSize];
-            Integer[] right = new Integer[rightSize];
-            for (int i = 0; i < mid; i++) {
-                left[i] = array[i];
+            int mitad = size / 2;
+            int leftSize = mitad;
+            int rightSize = size - mitad;
+            Integer[] primeraMitad = new Integer[leftSize];
+            Integer[] segundaMitad = new Integer[rightSize];
+            for (int i = 0; i < mitad; i++) {
+                primeraMitad[i] = array[i];
 
             }
-            for (int i = mid; i < size; i++) {
-                right[i - mid] = array[i];
+            for (int i = mitad; i < size; i++) {
+                segundaMitad[i - mitad] = array[i];
             }
-            mergeSort(left);
-            mergeSort(right);
+            mergeSort(primeraMitad);
+            mergeSort(segundaMitad);
 
-            int leftSize2 = left.length;
-            int rightSize2 = right.length;
+            int leftSize2 = primeraMitad.length;
+            int rightSize2 = segundaMitad.length;
             int i = 0, j = 0, k = 0;
             while (i < leftSize2 && j < rightSize2) {
-                if (left[i] <= right[j]) {
-                    array[k] = left[i];
+                if (primeraMitad[i] <= segundaMitad[j]) {
+                    array[k] = primeraMitad[i];
                     i++;
                     k++;
                 } else {
-                    array[k] = right[j];
+                    array[k] = segundaMitad[j];
                     k++;
                     j++;
                 }
             }
             while (i < leftSize2) {
-                array[k] = left[i];
+                array[k] = primeraMitad[i];
                 k++;
                 i++;
             }
             while (j < leftSize2) {
-                array[k] = right[j];
+                array[k] = segundaMitad[j];
                 k++;
                 j++;
             }

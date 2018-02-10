@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author anahernandez
  */
-public class MergeSortTest {
+public class HeapSortTest {
     
-    public MergeSortTest() {
+    public HeapSortTest() {
     }
     
     @BeforeClass
@@ -39,13 +39,13 @@ public class MergeSortTest {
     }
 
     /**
-     * Test of compareTo method, of class Sort.
+     * Test of compareTo method, of class HeapSort.
      */
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
         Object o = (int) 0;
-        MergeSort instance = new MergeSort();
+        HeapSort instance = new HeapSort();
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
@@ -57,16 +57,17 @@ public class MergeSortTest {
     }
 
     /**
-     * Test of mergeSort method, of class Sort.
+     * Test of heapSort method, of class HeapSort.
      */
     @Test
-    public void testMergeSort() {
-        System.out.println("mergeSort");
-        Integer[] array = {9,5,2,6,3,1};
-        MergeSort instance = new MergeSort();
-        instance.mergeSort(array);
+    public void testHeapSort() {
+        System.out.println("heapSort");
+        Integer[] arr = {9,5,2,6,3,1};
+        HeapSort instance = new HeapSort();
+        instance.heapSort(arr);
         Integer[] expResult = {1,2,3,5,6,9};
-        Integer[] result = instance.getMergedArray();
+        Integer[] result = instance.getHeapArray();
+        // TODO review the generated test code and remove the default call to fail.
         if (!Arrays.equals(result, expResult))
         {
             fail("La prueba ha fallado.");
@@ -75,15 +76,28 @@ public class MergeSortTest {
     }
 
     /**
-     * Test of getMergedArray method, of class Sort.
+     * Test of heapify method, of class HeapSort.
      */
     @Test
-    public void testGetMergedArray() {
-        System.out.println("getMergedArray");
-        MergeSort instance = new MergeSort();
-        Integer[] expResult = null;
-        Integer[] result = instance.getMergedArray();
-        assertArrayEquals(expResult, result);
-        
+    public void testHeapify() {
+        System.out.println("heapify");
+        Integer[] arr = {1,3,4,5,6,7,8};
+        int n = 0;
+        int i = 0;
+        HeapSort instance = new HeapSort();
+        instance.heapify(arr, n, i);
     }
+
+    /**
+     * Test of getHeapArray method, of class HeapSort.
+     */
+    @Test
+    public void testGetHeapArray() {
+        System.out.println("getHeapArray");
+        HeapSort instance = new HeapSort();
+        Integer[] expResult = null;
+        Integer[] result = instance.getHeapArray();
+        assertArrayEquals(expResult, result);
+    }
+    
 }

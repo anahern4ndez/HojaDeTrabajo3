@@ -30,7 +30,7 @@ public class HeapSort {
     /**
      * Método que comienza a separar el array y a montar subtrees. 
      * @param arr: array de números enteros a ordenar
-     * CODIGO EXTRAIDO DE: https://www.geeksforgeeks.org/heap-sort/ ** y modificado **
+     * CODIGO EXTRAIDO DE: https://www.geeksforgeeks.org/heap-sort/ 
      */
     public void heapSort(Integer arr[])
     {
@@ -59,7 +59,7 @@ public class HeapSort {
      * @param arr: array a ordenar
      * @param n: tamaño del heap
      * @param i: índice del array
-     * CODIGO EXTRAIDO DE: https://www.geeksforgeeks.org/heap-sort/ ** y modificado **
+     * CODIGO EXTRAIDO DE: https://www.geeksforgeeks.org/heap-sort/ 
      */
     void heapify(Integer arr[], int n, int i)
     {

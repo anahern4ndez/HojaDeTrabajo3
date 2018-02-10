@@ -70,12 +70,7 @@ public class GnomeSortTest {
         // TODO review the generated test code and remove the default call to fail.
         if (!Arrays.equals(result, expResult))
         {
-            String hilo ="";
-            for (int i=0; i<result.length;i++)
-            {
-                hilo += String.valueOf(result[i]) + " ";
-            }
-            fail(hilo);
+            fail("La prueba ha fallado.");
             
         }
     }
