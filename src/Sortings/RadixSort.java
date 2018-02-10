@@ -30,7 +30,11 @@ public class RadixSort {
         return comparable.compareTo(num1); // devuelve 0 si son iguales, -1 si comparable es menor y 
         //1 si es mayor que el argumento
     }
-    
+    /**
+     * Método que realiza el ordenamiento de los elementos de un arregle mediante el método RadixSort
+     * @param lista
+     * @return 
+     */
     public Integer[] RadixSort(Integer[] lista){
         if (lista==null||lista.length==0){
             return null;

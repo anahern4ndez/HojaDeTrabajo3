@@ -29,8 +29,11 @@ public class Principal {
         finally
         {
             writer.close();
-        }
-    }**/
+        }**/
+    /**
+     * @param args}*
+     * @throws java.io.IOException
+     */
     public static void main (String[] args) throws IOException
     {
         MergeSort sorting = new MergeSort();
@@ -41,6 +44,22 @@ public class Principal {
         for(int i=0; i<orden.length;i++)
         {
             System.out.println(String.valueOf(orden[i]));
+        }
+        GnomeSort gnome = new GnomeSort();
+        gnome.gnomeSort(list);
+        Integer[] ordengnome = sorting.getMergedArray();
+        System.out.println(String.valueOf("GNOME SORT: "));
+        for(int i=0; i<orden.length;i++)
+        {
+            System.out.println(String.valueOf(ordengnome[i]));
+        }
+        HeapSort heap = new HeapSort();
+        heap.heapSort(list);
+        Integer[] ordenheap = sorting.getMergedArray();
+        System.out.println(String.valueOf("GNOME SORT: "));
+        for(int i=0; i<orden.length;i++)
+        {
+            System.out.println(String.valueOf(ordenheap[i]));
         }
     }
 }
