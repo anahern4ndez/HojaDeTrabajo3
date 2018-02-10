@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author anahernandez
+ * @author Ana Lucía Hernández (17138). Luis Delgado (17187)
  */
 public class RadixSort {
     

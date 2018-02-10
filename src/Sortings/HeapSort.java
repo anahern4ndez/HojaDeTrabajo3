@@ -7,7 +7,7 @@ package Sortings;
 
 /**
  *
- * @author anahernandez
+ * @author Ana Lucía Hernández (17138). Luis Delgado (17187)
  */
 public class HeapSort {
     private Integer[] arrayHeap;
@@ -85,5 +85,9 @@ public class HeapSort {
             // Recursively heapify the affected sub-tree
             heapify(arr, n, largest);
         }
+    }
+    public Integer[] getHeapArray()
+    {
+        return arrayHeap;
     }
 }

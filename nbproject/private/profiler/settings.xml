@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment/>
-<entry key="org.netbeans.modules.profiler.v2.features.MethodsFeature_SelectedMethodsMode_SELECTION_FLAG">Sortings.Principal,main,([Ljava/lang/String;)V Sortings.QuickSort,quickSort,([Ljava/lang/Integer;)[Ljava/lang/Integer; Sortings.GnomeSort,gnomeSort,([Ljava/lang/Integer;)[Ljava/lang/Integer; </entry>
+<entry key="org.netbeans.modules.profiler.v2.features.MethodsFeature_SelectedMethodsMode_SELECTION_FLAG">Sortings.RadixSort,RadixSort,([Ljava/lang/Integer;)[Ljava/lang/Integer; Sortings.HeapSort,heapSort,([Ljava/lang/Integer;)V Sortings.QuickSort,quickSort,([Ljava/lang/Integer;)[Ljava/lang/Integer; Sortings.GnomeSort,gnomeSort,([Ljava/lang/Integer;)[Ljava/lang/Integer; Sortings.MergeSort,mergeSort,([Ljava/lang/Integer;)V </entry>
 <entry key="ACTIVATED_FEATURES">#org.netbeans.modules.profiler.v2.features.MethodsFeature@</entry>
 <entry key="org.netbeans.modules.profiler.v2.features.MethodsFeature_SelectedClassesMode_SELECTION_FLAG">Sortings.GnomeSort,*, Sortings.MergeSort,*, Sortings.RadixSort,*, Sortings.Principal,*, Sortings.HeapSort,*, Sortings.QuickSort,*, </entry>
 <entry key="org.netbeans.modules.profiler.v2.features.MethodsFeature_SETTINGS_FLAG">true</entry>
